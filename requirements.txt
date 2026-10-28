@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pypdf
+python-docx
+scikit-learn==1.6.1
+joblib
+httpx
+python-dotenv
+PyJWT
+bcrypt

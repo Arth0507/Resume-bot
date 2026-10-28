@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resume Role Predictor</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<section id="auth" class="auth" hidden>
+  <div class="auth-box">
+    <h1>Resume Role Predictor</h1>
+    <p class="auth-sub">Log in to save your chats and resume results.</p>
+    <div class="tabs">
+      <button id="tab-login" class="active">Log in</button>
+      <button id="tab-signup">Sign up</button>
+    </div>
+    <input id="a-name" placeholder="Name" autocomplete="name" hidden>
+    <input id="a-email" type="email" placeholder="Email" autocomplete="email">
+    <input id="a-pass" type="password" placeholder="Password (min 6 characters)" autocomplete="current-password">
+    <button id="a-submit" class="auth-btn">Log in</button>
+    <p id="a-err" class="auth-err"></p>
+  </div>
+</section>
+
+<div id="app" class="app" hidden>
+  <aside id="side">
+    <button id="newchat" class="sidenew">＋ New chat</button>
+    <div class="sidelabel">Your chats</div>
+    <div id="chatlist"></div>
+  </aside>
+  <div id="scrim" class="scrim"></div>
+
+  <div class="shell">
+    <header>
+      <div class="hleft">
+        <button id="menu" class="ghost-btn" title="Chats">☰</button>
+        <div class="brand">Resume Role Predictor</div>
+      </div>
+      <div class="hright">
+        <span id="who" class="who"></span>
+        <button id="logout" class="ghost-btn">Log out</button>
+      </div>
+    </header>
+
+    <main id="scroll">
+      <div id="chat">
+        <div id="welcome" class="welcome">
+          <h1>Which resume shall we check today?</h1>
+          <p>Upload a PDF or DOCX, or paste your resume text. The model will tell you which job field it matches best.</p>
+          <div class="cards">
+            <button class="card" id="c-upload"><b>📎 Upload resume</b><span>PDF or DOCX, max 5 MB</span></button>
+            <button class="card" id="c-paste"><b>📝 Paste text</b><span>Paste your resume text in the box below</span></button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="composer-wrap">
+      <div class="composer">
+        <div id="chip" class="chip" hidden>
+          <span id="chipname"></span>
+          <button id="chipx" title="Remove">✕</button>
+        </div>
+        <div class="inputrow">
+          <button id="attach" class="icon" title="Attach file">＋</button>
+          <input type="file" id="pick" hidden accept=".pdf,.docx,.txt">
+          <textarea id="txt" rows="1" placeholder="Attach a resume, paste text, or ask a question..."></textarea>
+          <button id="send" class="send" title="Send">↑</button>
+        </div>
+      </div>
+      <div class="foot">The ML model can make mistakes. Results are for guidance only.</div>
+    </div>
+  </div>
+</div>
+<div id="modal" class="modal" hidden>
+  <div class="mbox" role="dialog" aria-modal="true" aria-labelledby="mtitle">
+    <h3 id="mtitle">Delete chat?</h3>
+    <p id="mtext"></p>
+    <div class="mbtns">
+      <button id="mcancel" class="mb">Cancel</button>
+      <button id="mok" class="mb danger">Delete</button>
+    </div>
+  </div>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
